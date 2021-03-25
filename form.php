@@ -22,8 +22,12 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quam consequatur sed dolore vero dignissimos tenetur, nihil consectetur provident necessitatibus.</p>
 
                 <p>
+                   <?php if ( isset( $_GET['fname']) && !empty($_GET['fname'])) { ?>
                     first name: <?php echo $_GET['fname']; ?> <br/>
-                    last name: <?php echo $GET['lname']; ?> <br/>
+                   <?php } ?>
+                   <?php if ( isset( $_GET['lname']) && !empty($_GET['lname'])) { ?>
+                    last name: <?php echo $_GET['lname']; ?> <br/>
+                    <?php } ?>
                 </p>
             </div>
         </div>
