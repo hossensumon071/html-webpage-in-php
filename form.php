@@ -1,3 +1,7 @@
+<?php
+include_once "functions.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +30,12 @@
                     <?php 
                     $fname = '';
                     $lname = '';
+                    $checked = '';
+
+                    if(isset($_REQUEST['cb1'] ) &&  $_REQUEST['cb1']==1 ){
+                        $checked = 'checked';
+                    }
+                    print_r($_REQUEST);
                     ?>
                    <?php if ( isset( $_GET['fname']) && !empty($_GET['fname'])) { 
                        $fname = htmlspecialchars($_REQUEST['fname']);
@@ -50,6 +60,23 @@
 
                     <label for="fname">last Name</label>
                     <input type="text" name="lname" id="lname" value="<?php echo $lname; ?>">
+
+                    <div>
+                        <input type="checkbox" name="cb1" id="cb1" value="1" <?php echo $checked ?>>
+                        <label for="cb1" class="label-inline">Some checkbox</label>
+                    </div>
+
+                    <label class="label">Select Some Fruits</label>
+
+                    <input type="checkbox" name="fruits[]" value="orange" <?php isChecked('fruits', 'orange')?>>
+                    <label class="label-inline">Orange</label><br/>
+                    <input type="checkbox" name="fruits[]" value="mango">
+                    <label class="label-inline">Mango</label><br/>
+                    <input type="checkbox" name="fruits[]" value="banana">
+                    <label class="label-inline">Banana</label><br/>
+                    <input type="checkbox" name="fruits[]" value="lemon">
+                    <label class="label-inline">lemon</label><br/>
+
 
                     <button type="submit">Submit</button>
                 </form>
