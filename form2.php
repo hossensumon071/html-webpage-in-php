@@ -28,9 +28,11 @@ $fruits = ["mango", "orange", "banana", "apple", "lemon", "peach"];
 
                 <p>
                     <?php
-                        if(isset($_POST['fruits']) && $_POST['fruits'] !=''){
-                            printf("You have selected: %s", filter_input( INPUT_POST, 'fruits', FILTER_SANITIZE_STRING));
-                        }
+                    // $sfruits = isset($_POST['fruits'])? $_POST['fruits']:array();
+                    $sfruits = $_POST['fruits'] ?? array();
+                    if(count($sfruits)>0){
+                        echo "You have selected: ".join(",",$sfruits);
+                    }
                     ?>
                 </p>
             </div>
@@ -39,7 +41,7 @@ $fruits = ["mango", "orange", "banana", "apple", "lemon", "peach"];
             <div class="column column-60 column-offset-20">
                 <form method="POST">
                     <label for="fruits">Select Some Fruits</label>
-                    <select name="fruits" id="fruits">
+                    <select style="height:200px" name="fruits[]" id="fruits" multiple>
                         <option value="" disabled selected>Select Some Fruits</option>
                         <?php displayOptions($fruits); ?>
                     </select>
