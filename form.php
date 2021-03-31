@@ -22,66 +22,24 @@ include_once "functions.php";
     <div class="container">
         <div class="row">
             <div class="column column-60 column-offset-20">
-                <h2>Our First Form</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quam consequatur sed dolore vero dignissimos tenetur, nihil consectetur provident necessitatibus.</p>
-
-                <p>
-
-                    <?php 
-                    $fname = '';
-                    $lname = '';
-                    $checked = '';
-
-                    if(isset($_REQUEST['cb1'] ) &&  $_REQUEST['cb1']==1 ){
-                        $checked = 'checked';
-                    }
-                    print_r($_REQUEST);
-                    ?>
-                   <?php if ( isset( $_GET['fname']) && !empty($_GET['fname'])) { 
-                       $fname = htmlspecialchars($_REQUEST['fname']);
-                    } ?>
-                   <?php if ( isset( $_GET['lname']) && !empty($_GET['lname'])) { 
-                       $lname = htmlspecialchars($_REQUEST['lname']);
-                    } ?>
-
-                </p>
-                <p>
-                    First Name: <?php echo $fname; ?><br/>
-                    Last Name: <?php echo $lname; ?>
-                </p>
-                <?php ?>
+                <h2>Select/Dropdown</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia a saepe natus itaque cumque iste voluptatibus illum velit aliquam rem?</p>
             </div>
         </div>
         <div class="row">
             <div class="column column-60 column-offset-20">
-                <form method="GET">
-                    <label for="fname">First Name</label>
-                    <input type="text" name="fname" id="fname" value="<?php echo $fname; ?>">
-
-                    <label for="fname">last Name</label>
-                    <input type="text" name="lname" id="lname" value="<?php echo $lname; ?>">
-
-                    <div>
-                        <input type="checkbox" name="cb1" id="cb1" value="1" <?php echo $checked ?>>
-                        <label for="cb1" class="label-inline">Some checkbox</label>
-                    </div>
-
-                    <label class="label">Select Some Fruits</label>
-
-                    <input type="checkbox" name="fruits[]" value="orange" <?php isChecked('fruits', 'orange')?>>
-                    <label class="label-inline">Orange</label><br/>
-                    <input type="checkbox" name="fruits[]" value="mango">
-                    <label class="label-inline">Mango</label><br/>
-                    <input type="checkbox" name="fruits[]" value="banana">
-                    <label class="label-inline">Banana</label><br/>
-                    <input type="checkbox" name="fruits[]" value="lemon">
-                    <label class="label-inline">lemon</label><br/>
-
+                <form method="POST">
+                    <label for="fruits">Select Some Fruits</label>
+                    <select name="fruits" id="fruits">
+                        <option value="" disabled selected>Select Some Fruits</option>
+                        <option value="mango">Mango</option>
+                        <option value="orange">orange</option>
+                    </select>
 
                     <button type="submit">Submit</button>
                 </form>
             </div>
         </div>
-    </div>
+    </div>     
 </body>
 </html>
