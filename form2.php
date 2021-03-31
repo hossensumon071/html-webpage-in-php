@@ -1,5 +1,6 @@
 <?php
-include_once "functions.php";
+include_once "form2-function.php";
+$fruits = ["mango", "orange", "banana", "apple", "lemon", "peach"];
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +25,14 @@ include_once "functions.php";
             <div class="column column-60 column-offset-20">
                 <h2>Select/Dropdown</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia a saepe natus itaque cumque iste voluptatibus illum velit aliquam rem?</p>
+
+                <p>
+                    <?php
+                        if(isset($_POST['fruits']) && $_POST['fruits'] !=''){
+                            printf("You have selected: %s", filter_input( INPUT_POST, 'fruits', FILTER_SANITIZE_STRING));
+                        }
+                    ?>
+                </p>
             </div>
         </div>
         <div class="row">
@@ -32,6 +41,7 @@ include_once "functions.php";
                     <label for="fruits">Select Some Fruits</label>
                     <select name="fruits" id="fruits">
                         <option value="" disabled selected>Select Some Fruits</option>
+                        <?php displayOptions($fruits); ?>
                     </select>
 
                     <button type="submit">Submit</button>
